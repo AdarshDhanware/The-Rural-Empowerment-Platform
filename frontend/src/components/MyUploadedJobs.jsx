@@ -14,7 +14,7 @@ const MyUploadedJobs = () => {
   useEffect(() => {
     const fetchJobs = async () => {
       try {
-        const response = await axios.post("/api/users/your-jobs", { phoneNo: phoneNo }, {withCredentials:true});
+        const response = await axios.post("https://the-rural-empowerment-platform-1.onrender.com/api/users/your-jobs", { phoneNo: phoneNo }, {withCredentials:true});
         const jobsData = Array.isArray(response.data.data) ? response.data.data : [];
         setJobs(jobsData);
       } catch (error) {

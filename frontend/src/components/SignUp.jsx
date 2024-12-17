@@ -21,7 +21,7 @@ const SignUp = () => {
 
     try {
       // Axios POST request to register the user
-      const response = await axios.post("/api/users/register", {
+      const response = await axios.post("https://the-rural-empowerment-platform-1.onrender.com/api/users/register", {
         username: name,
         phoneNo,
         password,

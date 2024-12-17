@@ -21,7 +21,7 @@ const UploadJob = () => {
     }
     
     try {
-      const response = await axios.post("/api/jobs/upload-job", {
+      const response = await axios.post("https://the-rural-empowerment-platform-1.onrender.com/api/jobs/upload-job", {
         username,
         description,
         location,

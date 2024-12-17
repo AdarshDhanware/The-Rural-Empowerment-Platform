@@ -13,7 +13,7 @@ const FindJob = () => {
     const fetchJobs = async () => {
       try {
         setLoading(true);
-        const response = await axios.get("http://localhost:8000/api/jobs");
+        const response = await axios.get("https://the-rural-empowerment-platform-1.onrender.com/api/jobs");
         const jobsData = Array.isArray(response.data.data) ? response.data.data : [];
         setJobs(jobsData);
         setError(null);

@@ -14,7 +14,7 @@ const Login = () => {
 
     try {
       const response = await axios.post(
-        "/api/users/login",
+        "https://the-rural-empowerment-platform-1.onrender.com/api/users/login",
         { phoneNo, password },
         { withCredentials: true } // Include cookies
       );

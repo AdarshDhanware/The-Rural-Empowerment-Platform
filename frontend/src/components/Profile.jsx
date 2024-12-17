@@ -12,7 +12,7 @@ const Profile = () => {
   useEffect( ()=>{
     const fetchProfile=async ()=>{
       try {
-        const response=await axios.post("/api/users/profile",{phoneNo:login.phone},{withCredentials:true});
+        const response=await axios.post("https://the-rural-empowerment-platform-1.onrender.com/api/users/profile",{phoneNo:login.phone},{withCredentials:true});
         setUser(response.data?.data?.username); 
         setPhoneNo(response.data?.data?.phoneNo); 
       } catch (error) {

@@ -11,7 +11,7 @@ const Navbar = () => {
     e.preventDefault();
 
     try {
-      await axios.post("/api/users/logout",null,{withCredentials:true});
+      await axios.post("https://the-rural-empowerment-platform-1.onrender.com/api/users/logout",null,{withCredentials:true});
 
       // Clear login context on successful logout
       setLogin({
