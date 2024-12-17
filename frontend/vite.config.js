@@ -6,7 +6,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target: "https://the-rural-empowerment-platform-1.onrender.com", // Backend URL
+        target: "http://localhost:8000", // Backend URL
         changeOrigin: true,
         secure: false,
       },

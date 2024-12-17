@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import UserContext from "../context/UserContext";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import api from "../axiosConfig";
 
 const UploadJob = () => {
   const { login, setLogin } = useContext(UserContext);
@@ -21,7 +22,7 @@ const UploadJob = () => {
     }
     
     try {
-      const response = await axios.post("https://the-rural-empowerment-platform-1.onrender.com/api/jobs/upload-job", {
+      const response = await api.post("/api/jobs/upload-job", {
         username,
         description,
         location,

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios"; // Import Axios
 import {Link} from "react-router-dom"
 import { useNavigate } from "react-router-dom"; // For navigation after success
+import api from "../axiosConfig";
 
 const SignUp = () => {
   const [name, setName] = useState("");
@@ -21,7 +22,7 @@ const SignUp = () => {
 
     try {
       // Axios POST request to register the user
-      const response = await axios.post("https://the-rural-empowerment-platform-1.onrender.com/api/users/register", {
+      const response = await api.post("/api/users/register", {
         username: name,
         phoneNo,
         password,

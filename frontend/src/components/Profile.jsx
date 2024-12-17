@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import UserContext from "../context/UserContext";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import api from "../axiosConfig";
 
 const Profile = () => {
   const navigate=useNavigate();
@@ -12,7 +13,7 @@ const Profile = () => {
   useEffect( ()=>{
     const fetchProfile=async ()=>{
       try {
-        const response=await axios.post("https://the-rural-empowerment-platform-1.onrender.com/api/users/profile",{phoneNo:login.phone},{withCredentials:true});
+        const response=await api.post("/api/users/profile",{phoneNo:login.phone},{withCredentials:true});
         setUser(response.data?.data?.username); 
         setPhoneNo(response.data?.data?.phoneNo); 
       } catch (error) {

@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import logo from "../assets/logo.png"; // Update the path to match your file structure
 import UserContext from "../context/UserContext";
 import axios from "axios";
+import api from "../axiosConfig";
 
 const Navbar = () => {
   const { login, setLogin } = useContext(UserContext)
@@ -11,7 +12,7 @@ const Navbar = () => {
     e.preventDefault();
 
     try {
-      await axios.post("https://the-rural-empowerment-platform-1.onrender.com/api/users/logout",null,{withCredentials:true});
+      await api.post("/api/users/logout",null,{withCredentials:true});
 
       // Clear login context on successful logout
       setLogin({

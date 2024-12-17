@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import api from "../axiosConfig";
 
 const FindJob = () => {
   const [jobs, setJobs] = useState([]);
@@ -13,7 +14,7 @@ const FindJob = () => {
     const fetchJobs = async () => {
       try {
         setLoading(true);
-        const response = await axios.get("https://the-rural-empowerment-platform-1.onrender.com/api/jobs");
+        const response = await api.get("/api/jobs");
         const jobsData = Array.isArray(response.data.data) ? response.data.data : [];
         setJobs(jobsData);
         setError(null);

@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import UserContext from "../context/UserContext";
 import axios from "axios";
+import api from "../axiosConfig";
 
 const MyUploadedJobs = () => {
 
@@ -14,7 +15,7 @@ const MyUploadedJobs = () => {
   useEffect(() => {
     const fetchJobs = async () => {
       try {
-        const response = await axios.post("https://the-rural-empowerment-platform-1.onrender.com/api/users/your-jobs", { phoneNo: phoneNo }, {withCredentials:true});
+        const response = await api.post("/api/users/your-jobs", { phoneNo: phoneNo }, {withCredentials:true});
         const jobsData = Array.isArray(response.data.data) ? response.data.data : [];
         setJobs(jobsData);
       } catch (error) {

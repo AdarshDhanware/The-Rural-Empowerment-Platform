@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import UserContext from "../context/UserContext";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+import api from "../axiosConfig";
 
 const Login = () => {
   const [phoneNo, setPhone] = useState("");
@@ -13,8 +14,8 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post(
-        "https://the-rural-empowerment-platform-1.onrender.com/api/users/login",
+      const response = await api.post(
+        "/api/users/login",
         { phoneNo, password },
         { withCredentials: true } // Include cookies
       );
@@ -25,7 +26,8 @@ const Login = () => {
         alert("Login successful!");
       }
     } catch (error) {
-      console.error(error); // Debugging
+      console.log("error: ",error)
+      console.log("error on frontend: ",error) // Debugging
       alert(error.response?.data?.message || "Login failed. Please try again.");
     }
   };
